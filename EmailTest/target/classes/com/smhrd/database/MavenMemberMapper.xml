@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace : mapper 이름, mapper들끼리 이름이 겹치면 안됨! -->
+<mapper namespace="MemberMapper">
+	<insert id="join" parameterType="com.smhrd.model.MavenMember">
+		insert into users values (#{id},#{pw},#{email},#{emailHash},#{name})
+	</insert>
+	<select id="login">
+		select pw from users where id=#{id}
+	</select>
+	<select id="IDFind" parameterType="com.smhrd.model.MavenMember" resultType="com.smhrd.model.MavenMember">
+		select name,email,emailHash from users whrer name=#{name} and email=#{email}
+	</select>
+</mapper>
