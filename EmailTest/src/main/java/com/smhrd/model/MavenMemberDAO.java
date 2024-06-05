@@ -38,8 +38,6 @@ public class MavenMemberDAO {
 		}
 	}
 	
-	
-	
 	public String getEmail(String id) {
 		SqlSession sqlSession = sqlSessionFactory.openSession(true);
 		String result = sqlSession.selectOne("MemberMapper.login",id);
@@ -47,18 +45,10 @@ public class MavenMemberDAO {
 		return result;
 	}
 	
-	public boolean getemailChecked(String id) {
+	public String getId(String emailHash) {
 		SqlSession sqlSession = sqlSessionFactory.openSession(true);
-		
+		String result = sqlSession.selectOne("MemberMapper.ID",emailHash);
 		sqlSession.close();
-		return false;
+		return result;				
 	}
-	
-	public boolean setEmailChecked(String id) {
-		SqlSession sqlSession = sqlSessionFactory.openSession(true);
-		
-		sqlSession.close();
-		return false;
-	}
-	
 }

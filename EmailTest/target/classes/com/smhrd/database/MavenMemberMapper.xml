@@ -8,7 +8,10 @@
 	<select id="login">
 		select pw from users where id=#{id}
 	</select>
-	<select id="IDFind" parameterType="com.smhrd.model.MavenMember" resultType="com.smhrd.model.MavenMember">
-		select name,email,emailHash from users whrer name=#{name} and email=#{email}
+	<select id="FindID" parameterType="com.smhrd.model.MavenMember" resultType="com.smhrd.model.MavenMember">
+		select name,email,emailHash from users where name=#{name} and email=#{email}
+	</select>
+	<select id="ID" parameterType="java.lang.String" resultType="java.lang.String">
+		select id from users where emailHash=#{emailHash}
 	</select>
 </mapper>
