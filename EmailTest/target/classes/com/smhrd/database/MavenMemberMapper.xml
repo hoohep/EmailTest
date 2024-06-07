@@ -3,15 +3,15 @@
 <!-- namespace : mapper 이름, mapper들끼리 이름이 겹치면 안됨! -->
 <mapper namespace="MemberMapper">
 	<insert id="join" parameterType="com.smhrd.model.MavenMember">
-		insert into users values (#{id},#{pw},#{email},#{emailHash},#{name})
+		insert into USERS values (#{id},#{pw},#{email},#{emailHash},#{name})
 	</insert>
-	<select id="login">
-		select pw from users where id=#{id}
+	<select id="login" parameterType="com.smhrd.model.MavenMember" resultType="com.smhrd.model.MavenMember">
+		select * from USERS where id=#{id} and pw=#{pw}
 	</select>
 	<select id="FindID" parameterType="com.smhrd.model.MavenMember" resultType="com.smhrd.model.MavenMember">
-		select name,email,emailHash from users where name=#{name} and email=#{email}
+		select name,email,emailHash from USERS where name=#{name} and email=#{email}
 	</select>
 	<select id="ID" parameterType="java.lang.String" resultType="java.lang.String">
-		select id from users where emailHash=#{emailHash}
+		select id from USERS where emailHash=#{emailHash}
 	</select>
 </mapper>

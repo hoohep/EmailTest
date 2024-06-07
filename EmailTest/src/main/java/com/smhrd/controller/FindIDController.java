@@ -56,9 +56,6 @@ public class FindIDController extends HttpServlet {
 			p.put("mail.smtp.auth", "true");
 			p.put("mail.smtp.ssl.protocols", "TLSv1.2");
 			p.put("mail.smtp.debug", "true");
-//			p.put("mail.smtp.socketFactory.port", "465");
-//			p.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
-//			p.put("mail.smtp.socketFactory.fallback", "false");
 
 			final String username = "worhks0413@gmail.com";
             final String password = "wosf tshq fhma jaof";

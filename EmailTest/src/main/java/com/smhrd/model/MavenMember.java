@@ -58,4 +58,10 @@ public class MavenMember {
 	public void setEmailHash(String emailHash) {
 		this.emailHash = emailHash;
 	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
 }

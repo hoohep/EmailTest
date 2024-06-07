@@ -20,9 +20,9 @@ public class MavenMemberDAO {
 		return res;
 		
 	}
-	public String login(String id) {
+	public MavenMember login(MavenMember member) {
 		SqlSession sqlSession = sqlSessionFactory.openSession(true);
-		String result = sqlSession.selectOne("MemberMapper.login",id);
+		MavenMember result = sqlSession.selectOne("MemberMapper.login",member);
 		sqlSession.close();
 		return result;
 	}

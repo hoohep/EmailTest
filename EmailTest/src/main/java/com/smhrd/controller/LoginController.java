@@ -16,27 +16,21 @@ public class LoginController extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		request.setCharacterEncoding("UTF-8");
-
+request.setCharacterEncoding("UTF-8");
+		
 		String id = request.getParameter("id");
 		String pw = request.getParameter("pw");
-
-		MavenMember member = new MavenMember(id, pw);
-
+		
+		MavenMember member = new MavenMember(id, pw);		
+		
 		MavenMemberDAO dao = new MavenMemberDAO();
-		String result = dao.login(id);
-		// 성공 : 회원의 정보를 담고 있는 MavenMember 객체 반환
-		// 실패 : MavenMember 객체 생성 x => null
-
-		if (result != null) {
-			System.out.println("성공");
-			// 로그인한 회원의 정보를 세션에 저장
+		MavenMember result = dao.login(member);
+		
+		if(result!=null) {
 			HttpSession session = request.getSession();
 			session.setAttribute("member", result);
-
 			response.sendRedirect("index.jsp");
-		} else { // null
-			System.out.println("실패");
+		}else { 
 			response.sendRedirect("login.jsp");
 		}
 
